@@ -4,19 +4,14 @@ import { PaymentAccount, useCart } from '../CartContext'
 
 const paymentAccounts: PaymentAccount[] = [
   {
-    bank: 'First Ice Bank',
-    accountNumber: '123-456-789',
-    accountName: 'Rayfield Cool Mart'
+    bank: 'Access Bank',
+    accountNumber: '0014456302',
+    accountName: 'Hilda Neyol Buenyen'
   },
   {
-    bank: 'Glacial Trust',
-    accountNumber: '987-654-321',
-    accountName: 'Rayfield Cool Mart'
-  },
-  {
-    bank: 'Frost Savings',
-    accountNumber: '555-010-202',
-    accountName: 'Rayfield Cool Mart'
+    bank: 'Opay',
+    accountNumber: '8034748216',
+    accountName: 'Hilda Neyol Buenyen'
   }
 ]
 
