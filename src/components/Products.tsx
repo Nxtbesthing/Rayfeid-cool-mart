@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { useCatalog } from '../CatalogContext'
 import { Product as CartProduct, useCart } from '../CartContext'
 
@@ -7,8 +7,18 @@ interface Product extends CartProduct {}
 
 export default function Products() {
   const { products } = useCatalog()
-  const { cartItemCount, addToCart } = useCart()
+  const { cartItemCount, cartItems, addToCart, decrementFromCart } = useCart()
   const [addedProductName, setAddedProductName] = useState<string | null>(null)
+  const { page } = useParams<{ page?: string }>()
+
+  const pageSize = 2
+  const totalPages = Math.max(3, Math.ceil(products.length / pageSize))
+  const activePage = Math.min(Math.max(Number(page) || 1, 1), totalPages)
+
+  const pageProducts = useMemo(
+    () => products.slice((activePage - 1) * pageSize, activePage * pageSize),
+    [products, activePage]
+  )
 
   useEffect(() => {
     if (!addedProductName) return
@@ -31,31 +41,73 @@ export default function Products() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map(product => (
-            <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-              <div className="text-6xl text-center py-8 bg-gradient-to-r from-cold-blue to-cyan-500">
-                {product.image}
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-cold-blue">${product.price}</span>
+          {pageProducts.map(product => {
+            const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0
+            return (
+              <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div className="text-6xl text-center py-8 bg-gradient-to-r from-cold-blue to-cyan-500">
+                  {product.image}
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+                  <p className="text-gray-600 mb-4">{product.description}</p>
+                  <div className="mb-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2 rounded-full border border-cold-blue/20 bg-cold-light p-2">
+                      <button
+                        type="button"
+                        onClick={() => decrementFromCart(product.id)}
+                        disabled={quantity === 0}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-cold-blue shadow-sm transition hover:bg-cyan-50 disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        -
+                      </button>
+                      <span className="min-w-[2rem] text-center font-semibold">{quantity}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(product)}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-cold-blue shadow-sm transition hover:bg-cyan-50"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <span className="text-2xl font-bold text-cold-blue">${product.price}</span>
+                  </div>
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="bg-cold-blue text-white px-4 py-2 rounded hover:bg-cyan-600 transition"
+                    className="w-full rounded-full bg-cold-blue px-4 py-3 text-white font-semibold hover:bg-cyan-600 transition"
                   >
                     Add to Cart
                   </button>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
         <div className="text-center mt-12">
-          <Link to="/cart" className="bg-cold-dark text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
-            View Cart ({cartItemCount} items)
-          </Link>
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full bg-white/80 px-5 py-3 shadow-lg shadow-cold-blue/10 backdrop-blur-sm text-sm text-gray-700">
+            <span>Page {activePage} of {totalPages}</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-cold-blue" />
+            <span>Add more products on later pages via admin catalog management.</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[...Array(totalPages)].map((_, index) => {
+              const pageNumber = index + 1
+              return (
+                <Link
+                  key={pageNumber}
+                  to={`/products/page/${pageNumber}`}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${pageNumber === activePage ? 'bg-cold-blue text-white' : 'bg-white text-cold-dark hover:bg-cold-light'}`}
+                >
+                  Page {pageNumber}
+                </Link>
+              )
+            })}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/cart" className="bg-cold-dark text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
+              View Cart ({cartItemCount} items)
+            </Link>
+          </div>
         </div>
       </div>
 
