@@ -1,10 +1,9 @@
-export default function ShoppingCart() {
-  const cartItems = [
-    { id: 1, name: 'Small Cold Room (2x2m)', price: 5000, quantity: 1 },
-    { id: 2, name: 'Installation Service', price: 1500, quantity: 1 },
-  ]
+import { useCart } from '../CartContext'
 
-  const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+export default function ShoppingCart() {
+  const { cartItems, removeFromCart } = useCart()
+
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
   const tax = subtotal * 0.1
   const total = subtotal + tax
 
@@ -23,7 +22,12 @@ export default function ShoppingCart() {
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-cold-blue">${item.price}</p>
-                  <button className="text-red-500 text-sm hover:text-red-700">Remove</button>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-red-500 text-sm hover:text-red-700"
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             ))

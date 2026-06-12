@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCart } from '../CartContext'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const { cartItemCount } = useCart()
 
   return (
     <nav className="bg-cold-dark text-white shadow-lg">
@@ -19,7 +21,14 @@ export default function Navbar() {
             <Link to="/booking" className="hover:text-cold-blue transition">Booking</Link>
             <Link to="/about" className="hover:text-cold-blue transition">About</Link>
             <Link to="/contact" className="hover:text-cold-blue transition">Contact</Link>
-            <Link to="/cart" className="hover:text-cold-blue transition">🛒 Cart</Link>
+            <Link to="/cart" className="relative hover:text-cold-blue transition">
+              🛒 Cart
+              {cartItemCount > 0 && (
+                <span className="absolute -top-2 -right-3 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
           </div>
 
           <button 
@@ -38,7 +47,14 @@ export default function Navbar() {
             <Link to="/booking" className="block hover:text-cold-blue">Booking</Link>
             <Link to="/about" className="block hover:text-cold-blue">About</Link>
             <Link to="/contact" className="block hover:text-cold-blue">Contact</Link>
-            <Link to="/cart" className="block hover:text-cold-blue">🛒 Cart</Link>
+            <Link to="/cart" className="relative block hover:text-cold-blue">
+              🛒 Cart
+              {cartItemCount > 0 && (
+                <span className="ml-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
           </div>
         )}
       </div>

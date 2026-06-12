@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Product as CartProduct, useCart } from '../CartContext'
 
-interface Product {
-  id: number
-  name: string
-  price: number
-  image: string
-  description: string
-}
+interface Product extends CartProduct {}
 
 export default function Products() {
-  const [cart, setCart] = useState<Product[]>([])
+  const { cartItemCount, addToCart } = useCart()
+  const [addedProductName, setAddedProductName] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!addedProductName) return
+    const timer = window.setTimeout(() => setAddedProductName(null), 1800)
+    return () => window.clearTimeout(timer)
+  }, [addedProductName])
 
   const products: Product[] = [
     {
@@ -58,14 +60,16 @@ export default function Products() {
   ]
 
   const handleAddToCart = (product: Product) => {
-    setCart([...cart, product])
-    alert(`${product.name} added to cart!`)
+    addToCart(product)
+    setAddedProductName(product.name)
   }
 
   return (
-    <section className="py-16 bg-cold-light">
+    <section className="relative py-16 bg-cold-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12">Our Products</h2>
+        <div className="flex flex-col items-center gap-4">
+          <h2 className="text-4xl font-bold text-center mb-0">Our Products</h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map(product => (
             <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
@@ -90,10 +94,18 @@ export default function Products() {
         </div>
         <div className="text-center mt-12">
           <Link to="/cart" className="bg-cold-dark text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
-            View Cart ({cart.length} items)
+            View Cart ({cartItemCount} items)
           </Link>
         </div>
       </div>
+
+      {addedProductName && (
+        <div className="fixed bottom-6 right-6 z-50 rounded-2xl border border-green-200 bg-white/95 px-5 py-4 shadow-2xl shadow-green-500/10 backdrop-blur-md transition-all duration-300">
+          <p className="text-sm font-medium text-green-700">
+            {addedProductName} added to cart
+          </p>
+        </div>
+      )}
     </section>
   )
 }

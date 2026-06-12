@@ -9,13 +9,15 @@ import Orders from './components/Orders'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { CartProvider } from './CartContext'
 import './App.css'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
+    <CartProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
         <Route path="/" element={<><Hero /><Services /><Products /></>} />
         <Route path="/services" element={<Services />} />
         <Route path="/products" element={<Products />} />
@@ -24,9 +26,10 @@ function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   )
 }
 
