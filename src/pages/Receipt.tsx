@@ -4,6 +4,37 @@ import { useCart } from '../CartContext'
 export default function Receipt() {
   const { lastOrder } = useCart()
 
+  const downloadReceipt = () => {
+    if (!lastOrder) return
+
+    const receiptText = [
+      'Rayfield Cool Mart',
+      'Payment Receipt',
+      `Order ID: ${lastOrder.id}`,
+      `Date: ${lastOrder.date}`,
+      '\nPayment Account:',
+      `Bank: ${lastOrder.paymentAccount.bank}`,
+      `Account Number: ${lastOrder.paymentAccount.accountNumber}`,
+      `Account Name: ${lastOrder.paymentAccount.accountName}`,
+      '\nOrder Summary:',
+      ...lastOrder.items.map(item => `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`),
+      '\nSubtotal: $' + lastOrder.subtotal.toFixed(2),
+      'Tax: $' + lastOrder.tax.toFixed(2),
+      'Total: $' + lastOrder.total.toFixed(2),
+      '\nThank you for your payment!'
+    ].join('\n')
+
+    const blob = new Blob([receiptText], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `receipt-${lastOrder.id}.txt`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
   if (!lastOrder) {
     return (
       <section className="py-16 bg-white">
@@ -74,9 +105,18 @@ export default function Receipt() {
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <Link to="/products" className="inline-flex rounded-full bg-cold-blue px-6 py-3 text-white font-semibold hover:bg-cyan-600 transition">
-              Continue Shopping
-            </Link>
+            <div className="inline-flex gap-3 flex-wrap">
+              <Link to="/products" className="inline-flex rounded-full bg-cold-blue px-6 py-3 text-white font-semibold hover:bg-cyan-600 transition">
+                Continue Shopping
+              </Link>
+              <button
+                type="button"
+                onClick={downloadReceipt}
+                className="inline-flex rounded-full bg-cold-dark px-6 py-3 text-white font-semibold hover:bg-gray-800 transition"
+              >
+                Download Receipt
+              </button>
+            </div>
             <p className="text-gray-600">Thank you for your payment. We will confirm your order shortly.</p>
           </div>
         </div>
