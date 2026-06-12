@@ -11,6 +11,7 @@ import Receipt from './pages/Receipt'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import FloatingCart from './components/FloatingCart'
 import { CartProvider } from './CartContext'
 import { CatalogProvider } from './CatalogContext'
 import { AuthProvider, RequireAdmin, RequireAuth } from './AuthContext'
@@ -26,6 +27,7 @@ function App() {
         <CartProvider>
           <BrowserRouter>
             <Navbar />
+            <FloatingCart />
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route element={<RequireAuth />}>
