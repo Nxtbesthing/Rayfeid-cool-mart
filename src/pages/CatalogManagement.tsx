@@ -153,7 +153,7 @@ export default function CatalogManagement() {
                         <p className="text-gray-600">{product.description}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-lg font-bold text-cold-blue">${product.price}</p>
+                        <p className="text-lg font-bold text-cold-blue">₦{product.price}</p>
                         <p className="text-sm">{product.image}</p>
                       </div>
                     </div>

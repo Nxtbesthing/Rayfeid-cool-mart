@@ -24,8 +24,8 @@ export default function Checkout() {
     () => cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0),
     [cartItems]
   )
-  const tax = useMemo(() => subtotal * 0.1, [subtotal])
-  const total = useMemo(() => subtotal + tax, [subtotal, tax])
+  const tax = 0
+  const total = subtotal
 
   return (
     <section className="py-16 bg-white">
@@ -67,16 +67,8 @@ export default function Checkout() {
                 <span>{cartItems.reduce((sum, item) => sum + item.quantity, 0)} total</span>
               </div>
               <div className="flex justify-between text-gray-600">
-                <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-gray-600">
-                <span>Tax (10%)</span>
-                <span>${tax.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-xl font-bold border-t border-gray-200 pt-3">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>₦{total.toFixed(2)}</span>
               </div>
             </div>
           ) : (

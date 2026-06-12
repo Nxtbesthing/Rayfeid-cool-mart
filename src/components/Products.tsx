@@ -12,13 +12,13 @@ export default function Products() {
   const { page } = useParams<{ page?: string }>()
 
   const pageSize = 15
-  const totalPages = 3
   const pageTitles = ['Frozen Fish', 'Meats', 'Sea Foods']
+  const totalPages = pageTitles.length
   const activePage = Math.min(Math.max(Number(page) || 1, 1), totalPages)
   const pageTitle = pageTitles[activePage - 1] || `Page ${activePage}`
 
   const pageProducts = useMemo(
-    () => products.slice((activePage - 1) * pageSize, activePage * pageSize),
+    () => products.filter(product => product.page === activePage),
     [products, activePage]
   )
 
@@ -88,7 +88,7 @@ export default function Products() {
                         +
                       </button>
                     </div>
-                    <span className="text-2xl font-bold text-cold-blue">${product.price}</span>
+                    <span className="text-2xl font-bold text-cold-blue">₦{product.price}</span>
                   </div>
                   <button
                     onClick={() => handleAddToCart(product)}

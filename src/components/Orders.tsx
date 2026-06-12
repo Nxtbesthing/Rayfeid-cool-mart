@@ -42,7 +42,7 @@ export default function Orders() {
                   </div>
                   <div>
                     <p className="text-gray-600 text-sm">Total</p>
-                    <p className="font-semibold text-cold-blue text-lg">${order.total}</p>
+                    <p className="font-semibold text-cold-blue text-lg">₦{order.total}</p>
                   </div>
                 </div>
                 <p className="text-gray-600 mt-3">{order.items}</p>

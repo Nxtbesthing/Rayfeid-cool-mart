@@ -19,10 +19,8 @@ export default function Receipt() {
       `Account Number: ${lastOrder.paymentAccount.accountNumber}`,
       `Account Name: ${lastOrder.paymentAccount.accountName}`,
       '\nOrder Summary:',
-      ...lastOrder.items.map(item => `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`),
-      '\nSubtotal: $' + lastOrder.subtotal.toFixed(2),
-      'Tax: $' + lastOrder.tax.toFixed(2),
-      'Total: $' + lastOrder.total.toFixed(2),
+      ...lastOrder.items.map(item => `${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toFixed(2)}`),
+      '\nTotal: ₦' + lastOrder.total.toFixed(2),
       '\nThank you for your payment!'
     ].join('\n')
 
@@ -66,7 +64,7 @@ export default function Receipt() {
               <p className="text-gray-600">Order {lastOrder.id} • {lastOrder.date}</p>
             </div>
             <div className="rounded-3xl bg-cold-blue/10 px-5 py-3 text-cold-blue font-semibold">
-              Paid ${lastOrder.total.toFixed(2)}
+              Paid ₦{lastOrder.total.toFixed(2)}
             </div>
           </div>
 
@@ -90,22 +88,14 @@ export default function Receipt() {
                       <p className="font-semibold">{item.name}</p>
                       <p className="text-gray-500 text-sm">Qty {item.quantity}</p>
                     </div>
-                    <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                    <p className="font-semibold">₦{(item.price * item.quantity).toFixed(2)}</p>
                   </div>
                 ))}
               </div>
               <div className="mt-6 space-y-2 border-t border-gray-200 pt-4 text-gray-700">
-                <div className="flex justify-between">
-                  <span>Subtotal</span>
-                  <span>${lastOrder.subtotal.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Tax</span>
-                  <span>${lastOrder.tax.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between font-bold text-cold-blue">
+                    <div className="flex justify-between font-bold text-cold-blue">
                   <span>Total</span>
-                  <span>${lastOrder.total.toFixed(2)}</span>
+                  <span>₦{lastOrder.total.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -123,7 +113,7 @@ export default function Receipt() {
                   'Hello Rayfield Cool Mart,',
                   'I have completed payment and would like to verify this receipt.',
                   `Order ID: ${lastOrder.id}`,
-                  `Total: $${lastOrder.total.toFixed(2)}`,
+                  `Total: ₦${lastOrder.total.toFixed(2)}`,
                   'Please confirm.'
                 ].join(' ')
                 const url = `https://wa.me/2348034748216?text=${encodeURIComponent(whatsappMessage)}`

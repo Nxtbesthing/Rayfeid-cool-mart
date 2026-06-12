@@ -6,8 +6,7 @@ export default function ShoppingCart() {
   const { cartItems, removeFromCart } = useCart()
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-  const tax = subtotal * 0.1
-  const total = subtotal + tax
+  const total = subtotal
 
   return (
     <section className="py-16 bg-white">
@@ -23,7 +22,7 @@ export default function ShoppingCart() {
                   <p className="text-gray-600">Qty: {item.quantity}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold text-cold-blue">${item.price}</p>
+                  <p className="font-bold text-cold-blue">₦{item.price}</p>
                   <button
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500 text-sm hover:text-red-700"
@@ -40,17 +39,9 @@ export default function ShoppingCart() {
 
         <div className="bg-cold-light p-6 rounded-lg">
           <div className="space-y-2 mb-4">
-            <div className="flex justify-between">
-              <span>Subtotal:</span>
-              <span>${subtotal}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Tax (10%):</span>
-              <span>${tax.toFixed(2)}</span>
-            </div>
             <div className="flex justify-between text-xl font-bold border-t pt-2">
               <span>Total:</span>
-              <span className="text-cold-blue">${total.toFixed(2)}</span>
+              <span className="text-cold-blue">₦{total.toFixed(2)}</span>
             </div>
           </div>
 

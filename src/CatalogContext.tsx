@@ -8,11 +8,12 @@ interface CatalogContextValue {
   deleteProduct: (productId: number) => void
 }
 
-const CATALOG_STORAGE_KEY = 'rayfield-cool-mart-catalog'
+const CATALOG_STORAGE_KEY = 'rayfield-cool-mart-catalog-v2'
 
 const defaultProducts: Product[] = [
   {
     id: 1,
+    page: 1,
     name: 'Horse Mackerel',
     price: 4800,
     image: '🐟',
@@ -20,6 +21,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 2,
+    page: 1,
     name: 'Herring (Shawa)',
     price: 3500,
     image: '🐠',
@@ -27,6 +29,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 3,
+    page: 1,
     name: 'Titus',
     price: 7500,
     image: '🐟',
@@ -34,6 +37,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 4,
+    page: 1,
     name: 'Kanfale',
     price: 3700,
     image: '🐠',
@@ -41,6 +45,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 5,
+    page: 1,
     name: 'Dentex',
     price: 4600,
     image: '🐟',
@@ -48,6 +53,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 6,
+    page: 1,
     name: 'Tilapia',
     price: 4600,
     image: '🐟',
@@ -55,6 +61,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 7,
+    page: 1,
     name: 'Rock Fish',
     price: 3600,
     image: '🐟',
@@ -62,6 +69,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 8,
+    page: 1,
     name: 'Bonito',
     price: 4100,
     image: '🐠',
@@ -69,6 +77,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 9,
+    page: 1,
     name: 'Mullet',
     price: 3500,
     image: '🐟',
@@ -76,6 +85,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 10,
+    page: 1,
     name: 'Croaker',
     price: 5500,
     image: '🐠',
@@ -83,6 +93,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 11,
+    page: 1,
     name: 'Bream',
     price: 5200,
     image: '🐟',
@@ -90,6 +101,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 12,
+    page: 1,
     name: 'Hake',
     price: 5200,
     image: '🐠',
@@ -97,6 +109,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 13,
+    page: 2,
     name: 'Chicken',
     price: 4600,
     image: '🐔',
@@ -104,6 +117,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 14,
+    page: 2,
     name: 'Cow Tail',
     price: 4600,
     image: '🐄',
@@ -111,6 +125,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 15,
+    page: 2,
     name: 'Beef',
     price: 4600,
     image: '🥩',
@@ -118,6 +133,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 16,
+    page: 2,
     name: 'Beef Entrecôte',
     price: 4600,
     image: '🥩',
@@ -125,6 +141,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 17,
+    page: 2,
     name: 'Minced Beef',
     price: 550,
     image: '🥩',
@@ -132,6 +149,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 18,
+    page: 2,
     name: 'Cow Spleen',
     price: 4600,
     image: '🐄',
@@ -139,6 +157,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 19,
+    page: 2,
     name: 'Clean Shaki',
     price: 500,
     image: '🍖',
@@ -146,6 +165,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 20,
+    page: 2,
     name: 'Liver/Kidney',
     price: 4500,
     image: '🍖',
@@ -153,6 +173,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 21,
+    page: 2,
     name: 'Goat Meat',
     price: 550,
     image: '🐐',
@@ -160,6 +181,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 22,
+    page: 2,
     name: 'Cow Leg',
     price: 4100,
     image: '🐄',
@@ -167,6 +189,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 23,
+    page: 3,
     name: 'Shrimps 13,000/kg',
     price: 13000,
     image: '🦐',
@@ -174,6 +197,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 24,
+    page: 3,
     name: 'Shrimps 8,000 / 500g',
     price: 8000,
     image: '🦐',
@@ -181,6 +205,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 25,
+    page: 3,
     name: 'Shrimps 4,500 / 250g',
     price: 4500,
     image: '🦐',
@@ -188,6 +213,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 26,
+    page: 3,
     name: 'Shelly Scallop',
     price: 4300,
     image: '🦪',
@@ -195,6 +221,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 27,
+    page: 3,
     name: 'Chicken Gizzard',
     price: 5100,
     image: '🍗',
@@ -202,6 +229,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 28,
+    page: 3,
     name: 'Sausage (Chicken)',
     price: 3600,
     image: '🌭',
@@ -209,6 +237,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 29,
+    page: 3,
     name: 'Sausage (Beef)',
     price: 3600,
     image: '🌭',
@@ -216,6 +245,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 30,
+    page: 3,
     name: 'Crayfish',
     price: 5100,
     image: '🦞',
@@ -223,6 +253,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 31,
+    page: 3,
     name: 'Catfish',
     price: 5100,
     image: '🐟',
@@ -230,6 +261,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 32,
+    page: 3,
     name: 'Prawns 24,100/kg',
     price: 24100,
     image: '🦐',
@@ -237,6 +269,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 33,
+    page: 3,
     name: 'Prawns 13,100 / 500g',
     price: 13100,
     image: '🦐',
@@ -244,6 +277,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 34,
+    page: 3,
     name: 'Mini Sausage',
     price: 2600,
     image: '🌭',
@@ -251,6 +285,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 35,
+    page: 3,
     name: 'Crabs 9,000/kg',
     price: 9000,
     image: '🦀',
@@ -258,6 +293,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 36,
+    page: 3,
     name: 'Crabs 5,000 / 500g',
     price: 5000,
     image: '🦀',
@@ -265,6 +301,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 37,
+    page: 3,
     name: 'Calamari 27,000/kg',
     price: 27000,
     image: '🦑',
@@ -272,6 +309,7 @@ const defaultProducts: Product[] = [
   },
   {
     id: 38,
+    page: 3,
     name: 'Calamari 12,000 / 500g',
     price: 12000,
     image: '🦑',
@@ -294,7 +332,7 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
 
   const addProduct = (product: Omit<Product, 'id'>) => {
     const nextId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1
-    setProducts(prev => [...prev, { ...product, id: nextId }])
+    setProducts(prev => [...prev, { ...product, id: nextId, page: product.page ?? 1 }])
   }
 
   const updateProduct = (product: Product) => {
