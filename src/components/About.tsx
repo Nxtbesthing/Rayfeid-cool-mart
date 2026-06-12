@@ -6,45 +6,46 @@ export default function About() {
 
         <div className="space-y-6 text-gray-700 leading-relaxed">
           <p>
-            Rayfield Cool Mart is a leading provider of premium cold room solutions for businesses across various industries. 
-            With over a decade of experience, we've been committed to delivering high-quality, reliable cooling solutions 
-            that meet the specific needs of our clients.
+            Rayfield Cool Mart specializes in cold room solutions built for frozen food storage. Our systems are designed
+            specifically to protect fisheries, poultry suppliers, and food distributors who need reliable storage for fish,
+            chicken, meat, and other frozen goods.
           </p>
 
-          <h3 className="text-2xl font-semibold text-cold-dark">Our Mission</h3>
+          <h3 className="text-2xl font-semibold text-cold-dark">Why Our Cold Rooms?</h3>
           <p>
-            To provide innovative, cost-effective cold room solutions that help businesses maintain product quality, 
-            ensure food safety, and maximize operational efficiency.
+            We deliver cold rooms that maintain consistent low temperatures, preserve freshness, and prevent spoilage for
+            frozen foods. Our designs are tailored for the unique demands of fish, chicken, and bulk frozen inventory.
           </p>
 
-          <h3 className="text-2xl font-semibold text-cold-dark">Why Choose Us?</h3>
+          <h3 className="text-2xl font-semibold text-cold-dark">What We Offer</h3>
           <ul className="list-disc list-inside space-y-2">
-            <li>Expert technicians with years of experience</li>
-            <li>Custom solutions tailored to your specific needs</li>
-            <li>High-quality materials and components</li>
-            <li>Competitive pricing and flexible payment options</li>
-            <li>Comprehensive after-sales support and maintenance</li>
-            <li>24/7 emergency support for urgent issues</li>
+            <li>Custom cold room layouts for frozen food storage</li>
+            <li>Fast, reliable cooling systems for fish and poultry</li>
+            <li>Durable insulation and hygienic interior finishes</li>
+            <li>Secure temperature control for long-term freshness</li>
+            <li>Easy access and efficient organization for frozen inventory</li>
+            <li>Complete installation and maintenance support</li>
           </ul>
 
-          <h3 className="text-2xl font-semibold text-cold-dark">Our Track Record</h3>
-          <div className="grid grid-cols-3 gap-4 my-6">
+          <h3 className="text-2xl font-semibold text-cold-dark">Designed for Frozen Food Businesses</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
             <div className="text-center p-4 bg-cold-light rounded">
-              <p className="text-3xl font-bold text-cold-blue">500+</p>
-              <p className="text-gray-600">Installations</p>
+              <p className="text-3xl font-bold text-cold-blue">Fish</p>
+              <p className="text-gray-600">Cold rooms optimized for seafood preservation</p>
             </div>
             <div className="text-center p-4 bg-cold-light rounded">
-              <p className="text-3xl font-bold text-cold-blue">1000+</p>
-              <p className="text-gray-600">Happy Clients</p>
+              <p className="text-3xl font-bold text-cold-blue">Chicken</p>
+              <p className="text-gray-600">Safe storage for poultry and frozen poultry products</p>
             </div>
             <div className="text-center p-4 bg-cold-light rounded">
-              <p className="text-3xl font-bold text-cold-blue">10+</p>
-              <p className="text-gray-600">Years Experience</p>
+              <p className="text-3xl font-bold text-cold-blue">Frozen Goods</p>
+              <p className="text-gray-600">Flexible cold rooms for any frozen inventory</p>
             </div>
           </div>
 
           <p>
-            Contact us today to learn more about how Rayfield Cool Mart can help your business stay cool and competitive.
+            Get in touch with Rayfield Cool Mart for a cold room that keeps your frozen foods perfectly chilled from delivery
+            to dispatch.
           </p>
         </div>
       </div>

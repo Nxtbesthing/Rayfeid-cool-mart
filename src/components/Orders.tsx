@@ -5,14 +5,14 @@ export default function Orders() {
       date: '2024-06-01',
       status: 'Completed',
       total: 6500,
-      items: 'Small Cold Room + Installation'
+      items: 'Small fish and poultry cold room + installation'
     },
     {
       id: 'ORD002',
       date: '2024-06-05',
       status: 'In Progress',
       total: 18000,
-      items: 'Medium Cold Room + Service'
+      items: 'Medium frozen food cold room + maintenance service'
     },
   ]
 
@@ -50,7 +50,7 @@ export default function Orders() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-600">No orders yet</p>
+            <p className="text-center text-gray-600">No frozen food cold room orders yet</p>
           )}
         </div>
       </div>

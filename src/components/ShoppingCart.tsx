@@ -12,7 +12,7 @@ export default function ShoppingCart() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-12">Shopping Cart</h2>
+        <h2 className="text-4xl font-bold mb-12">Your Frozen Food Cold Room Order</h2>
 
         <div className="space-y-4 mb-8">
           {cartItems.length > 0 ? (
@@ -34,7 +34,7 @@ export default function ShoppingCart() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-600">Your cart is empty</p>
+            <p className="text-center text-gray-600">Your frozen food cold room cart is empty</p>
           )}
         </div>
 

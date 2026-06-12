@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCatalog } from '../CatalogContext'
 import { Product as CartProduct, useCart } from '../CartContext'
 
 interface Product extends CartProduct {}
 
 export default function Products() {
+  const { products } = useCatalog()
   const { cartItemCount, addToCart } = useCart()
   const [addedProductName, setAddedProductName] = useState<string | null>(null)
 
@@ -13,51 +15,6 @@ export default function Products() {
     const timer = window.setTimeout(() => setAddedProductName(null), 1800)
     return () => window.clearTimeout(timer)
   }, [addedProductName])
-
-  const products: Product[] = [
-    {
-      id: 1,
-      name: 'Small Cold Room (2x2m)',
-      price: 5000,
-      image: '❄️',
-      description: 'Compact cold room perfect for small businesses'
-    },
-    {
-      id: 2,
-      name: 'Medium Cold Room (4x4m)',
-      price: 12000,
-      image: '❄️',
-      description: 'Ideal for medium-sized operations'
-    },
-    {
-      id: 3,
-      name: 'Large Cold Room (6x6m)',
-      price: 25000,
-      image: '❄️',
-      description: 'Commercial-grade solution for large operations'
-    },
-    {
-      id: 4,
-      name: 'Industrial Freezer Unit',
-      price: 8500,
-      image: '🧊',
-      description: 'High-capacity freezer for bulk storage'
-    },
-    {
-      id: 5,
-      name: 'Modular Cold Room System',
-      price: 15000,
-      image: '❄️',
-      description: 'Customizable modular cold room design'
-    },
-    {
-      id: 6,
-      name: 'Walk-in Cooler Unit',
-      price: 18000,
-      image: '🚪',
-      description: 'Easy access walk-in cooler solution'
-    },
-  ]
 
   const handleAddToCart = (product: Product) => {
     addToCart(product)
@@ -68,7 +25,10 @@ export default function Products() {
     <section className="relative py-16 bg-cold-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-4xl font-bold text-center mb-0">Our Products</h2>
+          <h2 className="text-4xl font-bold text-center mb-0">Frozen Food Cold Room Solutions</h2>
+          <p className="max-w-2xl text-center text-gray-600">
+            Choose from cold room systems purpose-built for fish, chicken, seafood, and frozen inventory storage.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map(product => (

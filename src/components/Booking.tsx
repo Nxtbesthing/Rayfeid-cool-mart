@@ -7,14 +7,14 @@ export default function Booking() {
     phone: '',
     date: '',
     time: '',
-    service: 'installation',
+    service: 'frozen-room-design',
     roomSize: 'small',
     notes: '',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Booking request submitted! We will contact you soon.')
+    alert('Booking request submitted! We will contact you soon to discuss your frozen food cold room needs.')
     console.log('Booking data:', formData)
   }
 
@@ -26,7 +26,7 @@ export default function Booking() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12">Book an Appointment</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Book a Cold Room Consultation</h2>
         
         <form onSubmit={handleSubmit} className="space-y-6 bg-cold-light p-8 rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -86,10 +86,10 @@ export default function Booking() {
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-cold-blue"
             >
+              <option value="frozen-room-design">Frozen Room Design</option>
               <option value="installation">Installation</option>
               <option value="maintenance">Maintenance</option>
               <option value="repair">Repair</option>
-              <option value="consultation">Consultation</option>
             </select>
 
             <select
@@ -98,16 +98,16 @@ export default function Booking() {
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-cold-blue"
             >
-              <option value="small">Small (2x2m)</option>
-              <option value="medium">Medium (4x4m)</option>
-              <option value="large">Large (6x6m)</option>
+              <option value="small">Small (2x2m) - fish or chicken storage</option>
+              <option value="medium">Medium (4x4m) - larger frozen inventory</option>
+              <option value="large">Large (6x6m) - commercial frozen food storage</option>
               <option value="custom">Custom Size</option>
             </select>
           </div>
 
           <textarea
             name="notes"
-            placeholder="Additional notes or requirements..."
+            placeholder="Tell us about your frozen food storage requirements..."
             value={formData.notes}
             onChange={handleChange}
             rows={4}
@@ -118,7 +118,7 @@ export default function Booking() {
             type="submit"
             className="w-full bg-cold-blue text-white py-3 rounded font-semibold hover:bg-cyan-600 transition"
           >
-            Book Appointment
+            Book Consultation
           </button>
         </form>
       </div>

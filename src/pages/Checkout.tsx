@@ -40,8 +40,8 @@ export default function Checkout() {
         <div className="mb-10 rounded-3xl border border-cold-blue/20 bg-cold-light p-6 shadow-sm">
           <h3 className="text-2xl font-semibold mb-4">Payment Instructions</h3>
           <p className="mb-4 text-gray-700">
-            Please choose one of the accounts below and send payment for your order.
-            After sending payment, you can contact us with your reference so we can confirm and process your order.
+            Please choose one of the accounts below and send payment for your frozen food cold room order.
+            After payment, contact us with your reference so we can confirm and process your installation or system delivery.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">

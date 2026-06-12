@@ -55,7 +55,7 @@ export default function Receipt() {
         <div className="rounded-3xl border border-cold-blue/20 bg-white p-8 shadow-sm">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-4xl font-bold">Payment Receipt</h2>
+              <h2 className="text-4xl font-bold">Frozen Food Cold Room Receipt</h2>
               <p className="text-gray-600">Order {lastOrder.id} • {lastOrder.date}</p>
             </div>
             <div className="rounded-3xl bg-cold-blue/10 px-5 py-3 text-cold-blue font-semibold">
@@ -107,7 +107,7 @@ export default function Receipt() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="inline-flex gap-3 flex-wrap">
               <Link to="/products" className="inline-flex rounded-full bg-cold-blue px-6 py-3 text-white font-semibold hover:bg-cyan-600 transition">
-                Continue Shopping
+                Continue Browsing
               </Link>
               <button
                 type="button"
@@ -117,7 +117,7 @@ export default function Receipt() {
                 Download Receipt
               </button>
             </div>
-            <p className="text-gray-600">Thank you for your payment. We will confirm your order shortly.</p>
+            <p className="text-gray-600">Thank you for your payment. We will confirm your frozen food cold room setup shortly.</p>
           </div>
         </div>
       </div>

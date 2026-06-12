@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-cold-blue mb-4">Rayfield Cool Mart</h3>
             <p className="text-gray-400">
-              Providing premium cold room solutions for businesses since 2014.
+              Specialized frozen food cold room solutions for fish, chicken, and bulk freeze storage.
             </p>
           </div>
 
@@ -31,7 +31,7 @@ export default function Footer() {
               <li>📞 +1 (555) 123-4567</li>
               <li>📧 info@rayfieldcoolmart.com</li>
               <li>📍 123 Cool Street, RC 12345</li>
-              <li>🕒 24/7 Emergency Support</li>
+              <li>🕒 Frozen storage support 24/7</li>
             </ul>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Footer() {
 
         <div className="text-center text-gray-400">
           <p>&copy; {currentYear} Rayfield Cool Mart. All rights reserved.</p>
-          <p className="mt-2 text-sm">Designed for your cooling needs ❄️</p>
+          <p className="mt-2 text-sm">Dedicated to keeping your frozen food inventory perfectly chilled.</p>
         </div>
       </div>
     </footer>

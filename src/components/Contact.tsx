@@ -11,7 +11,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Thank you! Your message has been sent. We will contact you soon.')
+    alert('Thank you! Your message has been sent. We will contact you soon about your frozen food cold room needs.')
     console.log('Contact form data:', formData)
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
   }
@@ -52,7 +52,7 @@ export default function Contact() {
               <h4 className="font-semibold text-cold-blue mb-2">🕒 Business Hours</h4>
               <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
               <p className="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
-              <p className="text-gray-600">Sunday: Closed (Emergency Support: 24/7)</p>
+              <p className="text-gray-600">Sunday: Closed (Emergency Support for frozen storage: 24/7)</p>
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export default function Contact() {
 
             <textarea
               name="message"
-              placeholder="Your Message"
+              placeholder="Tell us about your frozen food storage needs..."
               value={formData.message}
               onChange={handleChange}
               rows={5}

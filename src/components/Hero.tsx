@@ -7,14 +7,14 @@ export default function Hero() {
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-4">Welcome to Rayfield Cool Mart</h1>
           <p className="text-xl mb-8 text-gray-200">
-            Premium Cold Room Solutions for Your Business
+            Premium cold room solutions built for frozen food storage — fish, chicken, and bulk frozen inventory.
           </p>
           <div className="flex gap-4 justify-center">
             <Link to="/products" className="bg-cold-blue hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold transition">
-              Browse Products
+              Explore Cold Room Systems
             </Link>
             <Link to="/booking" className="bg-white hover:bg-gray-200 text-cold-dark px-8 py-3 rounded-lg font-semibold transition">
-              Book Installation
+              Schedule a Consultation
             </Link>
           </div>
         </div>
