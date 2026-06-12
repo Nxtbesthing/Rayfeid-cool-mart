@@ -1,7 +1,11 @@
 export default function About() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 bg-white">
+      <div className="ice-cube top-8 right-10" />
+      <div className="ice-cube-small left-6 top-28" />
+      <div className="ice-cube-small right-24 bottom-10" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <h2 className="text-4xl font-bold mb-8">About Rayfield Cool Mart</h2>
 
         <div className="space-y-6 text-gray-700 leading-relaxed">

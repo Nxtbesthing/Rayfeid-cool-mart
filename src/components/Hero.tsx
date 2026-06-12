@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-r from-cold-dark to-cold-blue text-white py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-r from-cold-dark to-cold-blue text-white py-20">
+      <div className="ice-cube -left-10 -top-10" />
+      <div className="ice-cube-small right-10 top-24" />
+      <div className="ice-cube-small left-24 bottom-10" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-4">Welcome to Rayfield Cool Mart</h1>
           <p className="text-xl mb-8 text-gray-200">
