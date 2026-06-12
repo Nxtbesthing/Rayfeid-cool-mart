@@ -6,6 +6,8 @@ import Products from './components/Products'
 import Booking from './components/Booking'
 import ShoppingCart from './components/ShoppingCart'
 import Orders from './components/Orders'
+import Checkout from './pages/Checkout'
+import Receipt from './pages/Receipt'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -23,6 +25,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/receipt" element={<Receipt />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

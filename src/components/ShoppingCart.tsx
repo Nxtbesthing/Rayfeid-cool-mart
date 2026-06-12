@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
 
 export default function ShoppingCart() {
+  const navigate = useNavigate()
   const { cartItems, removeFromCart } = useCart()
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
@@ -52,7 +54,11 @@ export default function ShoppingCart() {
             </div>
           </div>
 
-          <button className="w-full bg-cold-blue text-white py-3 rounded font-semibold hover:bg-cyan-600 transition">
+          <button
+            onClick={() => navigate('/checkout')}
+            disabled={cartItems.length === 0}
+            className="w-full bg-cold-blue text-white py-3 rounded font-semibold hover:bg-cyan-600 transition disabled:cursor-not-allowed disabled:bg-slate-400"
+          >
             Proceed to Checkout
           </button>
         </div>

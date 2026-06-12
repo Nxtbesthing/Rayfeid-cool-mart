@@ -12,17 +12,37 @@ export interface CartItem extends Product {
   quantity: number
 }
 
+export interface PaymentAccount {
+  bank: string
+  accountNumber: string
+  accountName: string
+}
+
+export interface Order {
+  id: string
+  date: string
+  items: CartItem[]
+  subtotal: number
+  tax: number
+  total: number
+  paymentAccount: PaymentAccount
+}
+
 interface CartContextValue {
   cartItems: CartItem[]
   addToCart: (product: Product) => void
   removeFromCart: (productId: number) => void
+  clearCart: () => void
   cartItemCount: number
+  lastOrder: Order | null
+  setLastOrder: (order: Order) => void
 }
 
 const CartContext = createContext<CartContextValue | undefined>(undefined)
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [lastOrder, setLastOrder] = useState<Order | null>(null)
 
   const addToCart = (product: Product) => {
     setCartItems(prevItems => {
@@ -47,8 +67,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [cartItems]
   )
 
+  const clearCart = () => setCartItems([])
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, cartItemCount }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, cartItemCount, lastOrder, setLastOrder }}>
       {children}
     </CartContext.Provider>
   )
