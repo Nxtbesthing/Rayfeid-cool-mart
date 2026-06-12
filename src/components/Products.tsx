@@ -11,13 +11,20 @@ export default function Products() {
   const [addedProductName, setAddedProductName] = useState<string | null>(null)
   const { page } = useParams<{ page?: string }>()
 
-  const pageSize = 2
-  const totalPages = Math.max(3, Math.ceil(products.length / pageSize))
+  const pageSize = 15
+  const totalPages = 3
+  const pageTitles = ['Frozen Fish', 'Meats', 'Sea Foods']
   const activePage = Math.min(Math.max(Number(page) || 1, 1), totalPages)
+  const pageTitle = pageTitles[activePage - 1] || `Page ${activePage}`
 
   const pageProducts = useMemo(
     () => products.slice((activePage - 1) * pageSize, activePage * pageSize),
     [products, activePage]
+  )
+
+  const pageSlots = useMemo(
+    () => Array.from({ length: pageSize }, (_, index) => pageProducts[index] ?? null),
+    [pageProducts]
   )
 
   useEffect(() => {
@@ -35,13 +42,24 @@ export default function Products() {
     <section className="relative py-16 bg-cold-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-4xl font-bold text-center mb-0">Frozen Food Cold Room Solutions</h2>
+          <h2 className="text-4xl font-bold text-center mb-0">{pageTitle}</h2>
           <p className="max-w-2xl text-center text-gray-600">
-            Choose from cold room systems purpose-built for fish, chicken, seafood, and frozen inventory storage.
+            Select a frozen storage solution or item for this category. Empty slots are labeled "Yet to be added."
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pageProducts.map(product => {
+          {pageSlots.map((product, slotIndex) => {
+            if (!product) {
+              return (
+                <div key={`placeholder-${slotIndex}`} className="rounded-lg border-2 border-dashed border-cold-blue/30 bg-white/80 p-8 flex flex-col items-center justify-center text-center text-gray-500 shadow-sm">
+                  <div className="mb-4 text-6xl">🧊</div>
+                  <h3 className="text-xl font-semibold mb-2">Slot {slotIndex + 1}</h3>
+                  <p className="text-gray-500">Yet to be added</p>
+                  <p className="mt-3 text-sm text-gray-400">Fill this space with a new product from the admin catalog.</p>
+                </div>
+              )
+            }
+
             const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0
             return (
               <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
