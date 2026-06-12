@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
 
 export default function Receipt() {
   const { lastOrder } = useCart()
+  const [hasSharedReceipt, setHasSharedReceipt] = useState(false)
 
   const downloadReceipt = () => {
     if (!lastOrder) return
@@ -35,15 +37,20 @@ export default function Receipt() {
     URL.revokeObjectURL(url)
   }
 
+  const navigate = useNavigate()
+
   if (!lastOrder) {
     return (
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">No Receipt Found</h2>
-          <p className="text-gray-600 mb-6">It looks like you haven't completed a payment yet.</p>
-          <Link to="/products" className="inline-flex rounded-full bg-cold-blue px-6 py-3 text-white font-semibold hover:bg-cyan-600 transition">
+          <button
+            type="button"
+            onClick={() => navigate('/products')}
+            className="inline-flex rounded-full bg-cold-blue px-6 py-3 text-white font-semibold hover:bg-cyan-600 transition"
+          >
             Continue Shopping
-          </Link>
+          </button>
         </div>
       </section>
     )
@@ -104,11 +111,30 @@ export default function Receipt() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="inline-flex gap-3 flex-wrap">
-              <Link to="/products" className="inline-flex rounded-full bg-cold-blue px-6 py-3 text-white font-semibold hover:bg-cyan-600 transition">
-                Continue Browsing
-              </Link>
+          <div className="mt-10 rounded-3xl border border-cold-blue/20 bg-cold-light p-6">
+            <h3 className="text-2xl font-semibold text-cold-blue mb-4">Verify Your Receipt</h3>
+            <p className="text-gray-600 mb-4">
+              Share this receipt with our WhatsApp account for payment verification before you continue shopping.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                const whatsappMessage = [
+                  'Hello Rayfield Cool Mart,',
+                  'I have completed payment and would like to verify this receipt.',
+                  `Order ID: ${lastOrder.id}`,
+                  `Total: $${lastOrder.total.toFixed(2)}`,
+                  'Please confirm.'
+                ].join(' ')
+                const url = `https://wa.me/2348034748216?text=${encodeURIComponent(whatsappMessage)}`
+                window.open(url, '_blank')
+                setHasSharedReceipt(true)
+              }}
+              className="mb-4 inline-flex rounded-full bg-green-500 px-6 py-3 text-white font-semibold hover:bg-green-600 transition"
+            >
+              Share Receipt on WhatsApp
+            </button>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="button"
                 onClick={downloadReceipt}
@@ -116,7 +142,20 @@ export default function Receipt() {
               >
                 Download Receipt
               </button>
+              <button
+                type="button"
+                onClick={() => navigate('/products')}
+                disabled={!hasSharedReceipt}
+                className={`inline-flex rounded-full px-6 py-3 font-semibold transition ${hasSharedReceipt ? 'bg-cold-blue text-white hover:bg-cyan-600' : 'bg-gray-300 text-gray-600 cursor-not-allowed'}`}
+              >
+                Continue Shopping
+              </button>
             </div>
+            {!hasSharedReceipt && (
+              <p className="mt-3 text-sm text-gray-500">Please share the receipt on WhatsApp to unlock continuing shopping.</p>
+            )}
+          </div>
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-gray-600">Thank you for your payment. We will confirm your frozen food cold room setup shortly.</p>
           </div>
         </div>

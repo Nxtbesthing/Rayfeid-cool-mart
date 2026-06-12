@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { useAuth } from '../AuthContext'
 
 export default function FloatingCart() {
   const { cartItemCount } = useCart()
+  const { isAuthenticated } = useAuth()
 
-  if (cartItemCount === 0) {
+  if (!isAuthenticated || cartItemCount === 0) {
     return null
   }
 

@@ -1,3 +1,5 @@
+import WhatsAppButton from './WhatsAppButton'
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -31,8 +33,12 @@ export default function Footer() {
               <li>📞 +1 (555) 123-4567</li>
               <li>📧 info@rayfieldcoolmart.com</li>
               <li>📍 123 Cool Street, RC 12345</li>
+              <li>� WhatsApp: 08034748216</li>
               <li>🕒 Frozen storage support 24/7</li>
             </ul>
+            <div className="mt-6">
+              <WhatsAppButton label="Chat on WhatsApp" />
+            </div>
           </div>
         </div>
 

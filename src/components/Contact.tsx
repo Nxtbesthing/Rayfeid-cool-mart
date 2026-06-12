@@ -49,7 +49,14 @@ export default function Contact() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-cold-blue mb-2">🕒 Business Hours</h4>
+              <h4 className="font-semibold text-cold-blue mb-2">� WhatsApp</h4>
+              <p className="text-gray-600">Chat with us directly for order support and payment verification.</p>
+              <a href="https://wa.me/2348034748216" target="_blank" rel="noreferrer" className="text-cold-blue font-semibold hover:text-cyan-400 transition">
+                +234 803 474 8216
+              </a>
+            </div>
+            <div>
+              <h4 className="font-semibold text-cold-blue mb-2">�🕒 Business Hours</h4>
               <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
               <p className="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
               <p className="text-gray-600">Sunday: Closed (Emergency Support for frozen storage: 24/7)</p>

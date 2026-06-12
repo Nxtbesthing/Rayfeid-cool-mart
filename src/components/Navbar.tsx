@@ -23,22 +23,22 @@ export default function Navbar() {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="hover:text-cold-blue transition">Home</Link>
-            <Link to="/services" className="hover:text-cold-blue transition">Cold Room Services</Link>
-            <Link to="/products" className="hover:text-cold-blue transition">Frozen Rooms</Link>
-            <Link to="/booking" className="hover:text-cold-blue transition">Seafood & Poultry Booking</Link>
-            <Link to="/about" className="hover:text-cold-blue transition">Frozen Food Story</Link>
-            <Link to="/contact" className="hover:text-cold-blue transition">Contact</Link>
-            <Link to="/cart" className="relative hover:text-cold-blue transition">
-              🛒 Cold Room Cart
-              {cartItemCount > 0 && (
-                <span className="absolute -top-2 -right-3 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
-                  {cartItemCount}
-                </span>
-              )}
-            </Link>
             {isAuthenticated ? (
               <>
+                <Link to="/" className="hover:text-cold-blue transition">Home</Link>
+                <Link to="/services" className="hover:text-cold-blue transition">Cold Room Services</Link>
+                <Link to="/products" className="hover:text-cold-blue transition">Frozen Rooms</Link>
+                <Link to="/booking" className="hover:text-cold-blue transition">Seafood & Poultry Booking</Link>
+                <Link to="/about" className="hover:text-cold-blue transition">Frozen Food Story</Link>
+                <Link to="/contact" className="hover:text-cold-blue transition">Contact</Link>
+                <Link to="/cart" className="relative hover:text-cold-blue transition">
+                  🛒 Cold Room Cart
+                  {cartItemCount > 0 && (
+                    <span className="absolute -top-2 -right-3 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+                      {cartItemCount}
+                    </span>
+                  )}
+                </Link>
                 {isAdmin && (
                   <Link to="/admin" className="hover:text-cold-blue transition">Admin</Link>
                 )}
@@ -64,22 +64,22 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2">
-            <Link to="/" className="block hover:text-cold-blue">Home</Link>
-            <Link to="/services" className="block hover:text-cold-blue">Cold Room Services</Link>
-            <Link to="/products" className="block hover:text-cold-blue">Frozen Rooms</Link>
-            <Link to="/booking" className="block hover:text-cold-blue">Seafood & Poultry Booking</Link>
-            <Link to="/about" className="block hover:text-cold-blue">Frozen Food Story</Link>
-            <Link to="/contact" className="block hover:text-cold-blue">Contact</Link>
-            <Link to="/cart" className="relative block hover:text-cold-blue">
-              🛒 Cold Room Cart
-              {cartItemCount > 0 && (
-                <span className="ml-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
-                  {cartItemCount}
-                </span>
-              )}
-            </Link>
             {isAuthenticated ? (
               <>
+                <Link to="/" className="block hover:text-cold-blue">Home</Link>
+                <Link to="/services" className="block hover:text-cold-blue">Cold Room Services</Link>
+                <Link to="/products" className="block hover:text-cold-blue">Frozen Rooms</Link>
+                <Link to="/booking" className="block hover:text-cold-blue">Seafood & Poultry Booking</Link>
+                <Link to="/about" className="block hover:text-cold-blue">Frozen Food Story</Link>
+                <Link to="/contact" className="block hover:text-cold-blue">Contact</Link>
+                <Link to="/cart" className="relative block hover:text-cold-blue">
+                  🛒 Cold Room Cart
+                  {cartItemCount > 0 && (
+                    <span className="ml-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+                      {cartItemCount}
+                    </span>
+                  )}
+                </Link>
                 {isAdmin && (
                   <Link to="/admin" className="block hover:text-cold-blue">Admin Dashboard</Link>
                 )}
