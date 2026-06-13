@@ -9,8 +9,8 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
-          <h1 className="text-5xl font-bold mb-4">Welcome to Rayfield Cool Mart</h1>
-          <p className="text-xl mb-8 text-gray-200">
+          <h1 className="text-5xl font-bold mb-4 animate-rise">Welcome to Rayfield Cool Mart</h1>
+          <p className="text-xl mb-8 text-gray-200 animate-rise animate-rise-delay">
             Premium cold room solutions built for frozen food storage — fish, chicken, and bulk frozen inventory.
           </p>
           <div className="flex gap-4 justify-center">

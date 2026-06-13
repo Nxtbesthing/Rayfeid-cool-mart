@@ -2,3 +2,24 @@
   min-height: 100vh;
   background-color: #f9fafb;
 }
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  opacity: 0;
+  animation: riseIn 1.2s ease-out forwards;
+}
+
+.animate-rise-delay {
+  opacity: 0;
+  animation: riseIn 1.2s ease-out 0.3s forwards;
+}
