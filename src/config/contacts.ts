@@ -2,4 +2,5 @@ export const WHATSAPP_PHONE = '2348034748216'
 export const WHATSAPP_DISPLAY = '08034748216'
 export const DELIVERY_PHONES = ['08034748216', '08111322225']
 export const DELIVERY_DISPLAY = DELIVERY_PHONES.join(' or ')
+export const ADDRESS = 'Opposite Old Government House Junction, Rayfield, Jos'
 export const MAIN_CONTACT_DISPLAY = DELIVERY_DISPLAY

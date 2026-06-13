@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { WHATSAPP_PHONE, WHATSAPP_DISPLAY, DELIVERY_DISPLAY } from '../config/contacts'
+import { ADDRESS, WHATSAPP_PHONE, WHATSAPP_DISPLAY, DELIVERY_DISPLAY } from '../config/contacts'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ export default function Contact() {
 
             <div>
               <h4 className="font-semibold text-cold-blue mb-2">📍 Address</h4>
-              <p className="text-gray-600">123 Cool Street, Refrigeration City, RC 12345</p>
+              <p className="text-gray-600">{ADDRESS}</p>
             </div>
 
             <div>
