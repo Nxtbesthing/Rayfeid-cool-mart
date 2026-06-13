@@ -116,7 +116,9 @@ export default function Receipt() {
                   `Total: ₦${lastOrder.total.toFixed(2)}`,
                   'Please confirm.'
                 ].join(' ')
-                const url = `https://wa.me/2348034748216?text=${encodeURIComponent(whatsappMessage)}`
+                import { WHATSAPP_PHONE } from '../config/contacts'
+
+const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(whatsappMessage)}`
                 window.open(url, '_blank')
                 setHasSharedReceipt(true)
               }}

@@ -1,18 +1,8 @@
 export default function Services() {
   const services = [
     {
-      icon: '🛠️',
-      title: 'Frozen Food Cold Room Installation',
-      description: 'Professional installation tailored for fish, chicken, and frozen food storage.'
-    },
-    {
-      icon: '🔧',
-      title: 'Cold Room Maintenance',
-      description: 'Preventative care and rapid repair services for frozen food environments.'
-    },
-    {
       icon: '❄️',
-      title: 'Storage Design Consultation',
+      title: 'Ice Blocks',
       description: 'Custom planning for cold rooms optimized for frozen produce, poultry, and seafood.'
     },
     {
@@ -22,8 +12,8 @@ export default function Services() {
     },
     {
       icon: '🚚',
-      title: 'Delivery & Setup',
-      description: 'Fast delivery and on-site setup of cold rooms and refrigeration units.'
+      title: 'Fast Delivery',
+      description: 'Fast delivery of cold rooms and refrigeration units.'
     },
     {
       icon: '📞',

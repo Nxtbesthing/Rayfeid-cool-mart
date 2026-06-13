@@ -1,4 +1,5 @@
 import WhatsAppButton from './WhatsAppButton'
+import { DELIVERY_DISPLAY, WHATSAPP_DISPLAY, WHATSAPP_PHONE } from '../config/contacts'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -30,10 +31,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-cold-blue mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>📞 +1 (555) 123-4567</li>
+              <li>📞 {DELIVERY_DISPLAY}</li>
               <li>📧 info@rayfieldcoolmart.com</li>
               <li>📍 123 Cool Street, RC 12345</li>
-              <li>� WhatsApp: 08034748216</li>
+              <li>📱 WhatsApp: <a href={`https://wa.me/${WHATSAPP_PHONE}`} className="hover:underline">{WHATSAPP_DISPLAY}</a></li>
               <li>🕒 Frozen storage support 24/7</li>
             </ul>
             <div className="mt-6">

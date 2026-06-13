@@ -4,13 +4,14 @@ interface WhatsAppButtonProps {
   className?: string
 }
 
-const PHONE_NUMBER = '2348034748216'
+import { WHATSAPP_PHONE } from '../config/contacts'
+
 
 export default function WhatsAppButton({ message, label = 'Chat on WhatsApp', className = '' }: WhatsAppButtonProps) {
   const encodedMessage = message ? encodeURIComponent(message) : ''
   const url = message
-    ? `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`
-    : `https://wa.me/${PHONE_NUMBER}`
+    ? `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`
+    : `https://wa.me/${WHATSAPP_PHONE}`
 
   return (
     <a

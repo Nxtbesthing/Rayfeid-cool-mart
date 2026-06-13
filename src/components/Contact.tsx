@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { WHATSAPP_PHONE, WHATSAPP_DISPLAY, DELIVERY_DISPLAY } from '../config/contacts'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -38,8 +39,7 @@ export default function Contact() {
 
             <div>
               <h4 className="font-semibold text-cold-blue mb-2">📞 Phone</h4>
-              <p className="text-gray-600">+1 (555) 123-4567</p>
-              <p className="text-gray-600">+1 (555) 123-4568</p>
+              <p className="text-gray-600">{DELIVERY_DISPLAY}</p>
             </div>
 
             <div>
@@ -49,10 +49,10 @@ export default function Contact() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-cold-blue mb-2">� WhatsApp</h4>
+              <h4 className="font-semibold text-cold-blue mb-2">📱 WhatsApp</h4>
               <p className="text-gray-600">Chat with us directly for order support and payment verification.</p>
-              <a href="https://wa.me/2348034748216" target="_blank" rel="noreferrer" className="text-cold-blue font-semibold hover:text-cyan-400 transition">
-                +234 803 474 8216
+              <a href={`https://wa.me/${WHATSAPP_PHONE}`} target="_blank" rel="noreferrer" className="text-cold-blue font-semibold hover:text-cyan-400 transition">
+                {WHATSAPP_DISPLAY}
               </a>
             </div>
             <div>
