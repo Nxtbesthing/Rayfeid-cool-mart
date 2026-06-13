@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { WHATSAPP_PHONE } from '../config/contacts'
 
 export default function Receipt() {
   const { lastOrder } = useCart()
@@ -116,9 +117,7 @@ export default function Receipt() {
                   `Total: ₦${lastOrder.total.toFixed(2)}`,
                   'Please confirm.'
                 ].join(' ')
-                import { WHATSAPP_PHONE } from '../config/contacts'
-
-const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(whatsappMessage)}`
+                const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(whatsappMessage)}`
                 window.open(url, '_blank')
                 setHasSharedReceipt(true)
               }}
