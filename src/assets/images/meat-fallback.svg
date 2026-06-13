@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="meatFallbackTitle">
+  <title id="meatFallbackTitle">Frozen meat placeholder</title>
+  <rect width="160" height="120" rx="20" fill="#fff1f2" />
+  <path d="M40 80c16-22 30-30 54-26 18 3 28 16 36 24 4 4 4 12 0 18-8 10-28 16-44 12-14-4-24-12-34-24" fill="#fecaca" />
+  <path d="M86 42c8-6 20-6 28 0 12 8 18 24 16 38-2 8-8 12-14 14" stroke="#991b1b" stroke-width="5" fill="none" stroke-linecap="round" />
+  <ellipse cx="58" cy="66" rx="10" ry="14" fill="#f87171" />
+  <ellipse cx="106" cy="72" rx="14" ry="20" fill="#ef4444" />
+  <circle cx="112" cy="64" r="4" fill="#ffffff" />
+</svg>

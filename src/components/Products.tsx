@@ -3,6 +3,13 @@ import { Link, useParams } from 'react-router-dom'
 import { useCatalog } from '../CatalogContext'
 import { Product as CartProduct, useCart } from '../CartContext'
 
+const fallbackImagesByPage: Record<number, string> = {
+  1: new URL('../assets/images/fish-fallback.svg', import.meta.url).href,
+  2: new URL('../assets/images/meat-fallback.svg', import.meta.url).href,
+  3: new URL('../assets/images/seafood-fallback.svg', import.meta.url).href,
+}
+const genericFallbackImage = new URL('../assets/images/image-fallback.svg', import.meta.url).href
+
 interface Product extends CartProduct {}
 
 export default function Products() {
@@ -61,20 +68,21 @@ export default function Products() {
             }
 
             const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0
+            const pageFallback = fallbackImagesByPage[product.page ?? 1] ?? genericFallbackImage
+            const imageSrc = typeof product.image === 'string' && product.image.startsWith('http') ? product.image : pageFallback
+
             return (
               <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
                 <div className="relative h-64 overflow-hidden bg-slate-100">
-                  {product.image.startsWith('http') ? (
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <div className="text-6xl text-center py-8 bg-gradient-to-r from-cold-blue to-cyan-500">
-                      {product.image}
-                    </div>
-                  )}
+                  <img
+                    src={imageSrc}
+                    alt={product.name}
+                    className="h-full w-full object-cover"
+                    onError={event => {
+                      const img = event.currentTarget
+                      if (img.src !== pageFallback) img.src = pageFallback
+                    }}
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
