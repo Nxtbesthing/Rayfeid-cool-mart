@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
+import { formatNaira } from '../utils/formatCurrency'
 
 export default function ShoppingCart() {
   const navigate = useNavigate()
@@ -22,7 +23,7 @@ export default function ShoppingCart() {
                   <p className="text-gray-600">Qty: {item.quantity}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold text-cold-blue">₦{item.price}</p>
+                  <p className="font-bold text-cold-blue">{formatNaira(item.price)}</p>
                   <button
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500 text-sm hover:text-red-700"
@@ -41,7 +42,7 @@ export default function ShoppingCart() {
           <div className="space-y-2 mb-4">
             <div className="flex justify-between text-xl font-bold border-t pt-2">
               <span>Total:</span>
-              <span className="text-cold-blue">₦{total.toFixed(2)}</span>
+              <span className="text-cold-blue">{formatNaira(total, 2)}</span>
             </div>
           </div>
 

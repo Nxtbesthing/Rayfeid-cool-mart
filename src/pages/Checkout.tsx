@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PaymentAccount, useCart } from '../CartContext'
+import { formatNaira } from '../utils/formatCurrency'
 
 const paymentAccounts: PaymentAccount[] = [
   {
@@ -68,7 +69,7 @@ export default function Checkout() {
               </div>
               <div className="flex justify-between text-gray-600">
                 <span>Total</span>
-                <span>₦{total.toFixed(2)}</span>
+                <span>{formatNaira(total, 2)}</span>
               </div>
             </div>
           ) : (

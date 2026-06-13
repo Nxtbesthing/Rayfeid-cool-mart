@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useCatalog } from '../CatalogContext'
 import { WHATSAPP_PHONE } from '../config/contacts'
+import { formatNaira } from '../utils/formatCurrency'
 
 type BookingItem = { id: number; name: string; price: number; quantity: number }
 
@@ -67,9 +68,9 @@ export default function Booking() {
       if (pendingBooking.items && pendingBooking.items.length > 0) {
         lines.push('\nItems:')
         pendingBooking.items.forEach((it: any) => {
-          lines.push(`- ${it.name} x${it.quantity} — ₦${it.price}`)
+          lines.push(`- ${it.name} x${it.quantity} — ${formatNaira(it.price)}`)
         })
-        lines.push('\nEstimated total: ₦' + (pendingBooking.subtotal || 0))
+        lines.push('\nEstimated total: ' + formatNaira(pendingBooking.subtotal || 0))
       }
       if (pendingBooking.notes) lines.push('\nNotes: ' + pendingBooking.notes)
 
@@ -242,7 +243,7 @@ export default function Booking() {
                 {suggestions.map(s => (
                   <div key={s.id} className="flex justify-between items-center bg-white p-2 border rounded">
                     <div className="text-sm">
-                      {s.name} — ₦{s.price}
+                      {s.name} — {formatNaira(s.price)}
                     </div>
                     <button type="button" onClick={() => addSuggestion(s)} className="ml-2 text-sm text-cold-blue">
                       Add
@@ -260,7 +261,7 @@ export default function Booking() {
                 {(formData.items as BookingItem[]).map((it) => (
                   <div key={it.id} className="flex items-center justify-between">
                     <div className="text-sm">
-                      {it.name} — ₦{it.price}
+                      {it.name} — {formatNaira(it.price)}
                     </div>
                     <div className="flex items-center gap-2">
                       <button type="button" onClick={() => decreaseQty(it.id)} className="px-2 py-1 bg-gray-100 rounded">-</button>
@@ -276,7 +277,7 @@ export default function Booking() {
 
           {subtotal > 0 && (
             <div className="mt-3 text-right text-lg font-semibold">
-              Estimated total: ₦{subtotal.toLocaleString()}
+              Estimated total: {formatNaira(subtotal)}
             </div>
           )}
 
@@ -307,10 +308,10 @@ export default function Booking() {
                   <div className="mt-2"><strong>Items:</strong></div>
                   <div className="ml-4">
                     {(pendingBooking.items || []).map((it: any) => (
-                      <div key={it.id}>{it.name} x{it.quantity} — ₦{it.price}</div>
+                      <div key={it.id}>{it.name} x{it.quantity} — {formatNaira(it.price)}</div>
                     ))}
                   </div>
-                  <div className="mt-2"><strong>Estimated total:</strong> ₦{pendingBooking.subtotal?.toLocaleString?.() ?? pendingBooking.subtotal}</div>
+                  <div className="mt-2"><strong>Estimated total:</strong> {formatNaira(pendingBooking.subtotal || 0)}</div>
                   {pendingBooking.notes && <div className="mt-2"><strong>Notes:</strong> {pendingBooking.notes}</div>}
                 </div>
 

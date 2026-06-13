@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useCatalog } from '../CatalogContext'
 import { Product as CartProduct, useCart } from '../CartContext'
+import { formatNaira } from '../utils/formatCurrency'
 
 const fallbackImagesByPage: Record<number, string> = {
   1: new URL('../assets/images/fish-fallback.svg', import.meta.url).href,
@@ -106,7 +107,7 @@ export default function Products() {
                         +
                       </button>
                     </div>
-                    <span className="text-2xl font-bold text-cold-blue">₦{product.price}</span>
+                    <span className="text-2xl font-bold text-cold-blue">{formatNaira(product.price)}</span>
                   </div>
                   <button
                     onClick={() => handleAddToCart(product)}
