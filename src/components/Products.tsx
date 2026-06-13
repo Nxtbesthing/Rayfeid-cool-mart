@@ -63,8 +63,18 @@ export default function Products() {
             const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0
             return (
               <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div className="text-6xl text-center py-8 bg-gradient-to-r from-cold-blue to-cyan-500">
-                  {product.image}
+                <div className="relative h-64 overflow-hidden bg-slate-100">
+                  {product.image.startsWith('http') ? (
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-6xl text-center py-8 bg-gradient-to-r from-cold-blue to-cyan-500">
+                      {product.image}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{product.name}</h3>

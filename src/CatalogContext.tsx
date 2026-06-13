@@ -16,7 +16,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Horse Mackerel',
     price: 4800,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/horse-mackerel',
     description: 'Fresh frozen horse mackerel, ideal for cold room storage and seafood menus.'
   },
   {
@@ -24,7 +24,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Herring (Shawa)',
     price: 3500,
-    image: '🐠',
+    image: 'https://loremflickr.com/640/480/herring',
     description: 'Premium frozen herring ready for preservation in your cold room.'
   },
   {
@@ -32,7 +32,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Titus',
     price: 7500,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/titus-fish',
     description: 'High-quality frozen titus for dependable shelf life and flavor retention.'
   },
   {
@@ -40,7 +40,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Kanfale',
     price: 3700,
-    image: '🐠',
+    image: 'https://loremflickr.com/640/480/kanfale',
     description: 'Tender frozen kanfale, prepared for safe cold storage.'
   },
   {
@@ -48,7 +48,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Dentex',
     price: 4600,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/dentex-fish',
     description: 'Frozen dentex packaged for ideal frozen fish inventory management.'
   },
   {
@@ -56,7 +56,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Tilapia',
     price: 4600,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/tilapia',
     description: 'Frozen tilapia fillets, ready for your refrigerated cold room system.'
   },
   {
@@ -64,7 +64,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Rock Fish',
     price: 3600,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/rock-fish',
     description: 'Frozen rock fish with stable quality for long-term cold storage.'
   },
   {
@@ -72,7 +72,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Bonito',
     price: 4100,
-    image: '🐠',
+    image: 'https://loremflickr.com/640/480/bonito',
     description: 'Frozen bonito, suitable for seafood supply and cold room inventory.'
   },
   {
@@ -80,7 +80,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Mullet',
     price: 3500,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/mullet',
     description: 'Classic frozen mullet for efficient cold storage and shipping.'
   },
   {
@@ -88,7 +88,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Croaker',
     price: 5500,
-    image: '🐠',
+    image: 'https://loremflickr.com/640/480/croaker',
     description: 'Fresh frozen croaker, perfect for your seafood cold room needs.'
   },
   {
@@ -96,7 +96,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Bream',
     price: 5200,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/bream',
     description: 'Frozen bream with excellent frozen storage compatibility.'
   },
   {
@@ -104,7 +104,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Hake',
     price: 5200,
-    image: '🐠',
+    image: 'https://loremflickr.com/640/480/hake',
     description: 'Premium frozen hake ready for controlled cold room preservation.'
   },
   {
@@ -112,7 +112,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Chicken',
     price: 4600,
-    image: '🐔',
+    image: 'https://loremflickr.com/640/480/chicken-meat',
     description: 'Frozen chicken priced per kg, perfect for meat cold room storage.'
   },
   {
@@ -120,7 +120,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Cow Tail',
     price: 4600,
-    image: '🐄',
+    image: 'https://loremflickr.com/640/480/cow-tail',
     description: 'Frozen cow tail ready for long-term storage in your meat cold room.'
   },
   {
@@ -128,7 +128,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Beef',
     price: 4600,
-    image: '🥩',
+    image: 'https://loremflickr.com/640/480/beef-cut',
     description: 'Premium frozen beef for optimized cold room inventory management.'
   },
   {
@@ -136,7 +136,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Beef Entrecôte',
     price: 4600,
-    image: '🥩',
+    image: 'https://loremflickr.com/640/480/beef-entrecote',
     description: 'Frozen beef entrecôte with excellent quality for cold storage and retail.'
   },
   {
@@ -144,7 +144,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Minced Beef',
     price: 550,
-    image: '🥩',
+    image: 'https://loremflickr.com/640/480/minced-beef',
     description: 'Frozen minced beef for flexible meal preparation and cold room preservation.'
   },
   {
@@ -152,7 +152,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Cow Spleen',
     price: 4600,
-    image: '🐄',
+    image: 'https://loremflickr.com/640/480/cow-spleen',
     description: 'Frozen cow spleen for specialty meat inventory and chilled storage.'
   },
   {
@@ -160,7 +160,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Clean Shaki',
     price: 500,
-    image: '🍖',
+    image: 'https://loremflickr.com/640/480/clean-shaki',
     description: 'Fresh frozen clean shaki ready for safe storage in your cold room.'
   },
   {
@@ -168,7 +168,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Liver/Kidney',
     price: 4500,
-    image: '🍖',
+    image: 'https://loremflickr.com/640/480/liver-kidney',
     description: 'Frozen liver and kidney combo for durable cold storage and quick preparation.'
   },
   {
@@ -176,7 +176,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Goat Meat',
     price: 550,
-    image: '🐐',
+    image: 'https://loremflickr.com/640/480/goat-meat',
     description: 'Frozen goat meat priced for bulk cold room storage and easy order fulfillment.'
   },
   {
@@ -184,7 +184,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Cow Leg',
     price: 4100,
-    image: '🐄',
+    image: 'https://loremflickr.com/640/480/cow-leg',
     description: 'Frozen cow leg intended for stable cold room preservation and strong inventory control.'
   },
   {
@@ -192,7 +192,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Shrimps 13,000/kg',
     price: 13000,
-    image: '🦐',
+    image: 'https://loremflickr.com/640/480/shrimp',
     description: 'Premium frozen shrimps sold by the kilogram for seafood cold storage.'
   },
   {
@@ -200,7 +200,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Shrimps 8,000 / 500g',
     price: 8000,
-    image: '🦐',
+    image: 'https://loremflickr.com/640/480/shrimp-500g',
     description: 'Frozen shrimps portioned in 500g packs for smaller cold room servings.'
   },
   {
@@ -208,7 +208,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Shrimps 4,500 / 250g',
     price: 4500,
-    image: '🦐',
+    image: 'https://loremflickr.com/640/480/shrimp-250g',
     description: 'Frozen shrimps in 250g packs for retail cold storage and quick preparation.'
   },
   {
@@ -216,7 +216,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Shelly Scallop',
     price: 4300,
-    image: '🦪',
+    image: 'https://loremflickr.com/640/480/scallop',
     description: 'Frozen shelly scallop for premium seafood cold room merchandising.'
   },
   {
@@ -224,7 +224,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Chicken Gizzard',
     price: 5100,
-    image: '🍗',
+    image: 'https://loremflickr.com/640/480/chicken-gizzard',
     description: 'Frozen chicken gizzard for specialty meat cold storage and processing.'
   },
   {
@@ -232,7 +232,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Sausage (Chicken)',
     price: 3600,
-    image: '🌭',
+    image: 'https://loremflickr.com/640/480/chicken-sausage',
     description: 'Frozen chicken sausage ready for refrigerated storage and retail sale.'
   },
   {
@@ -240,7 +240,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Sausage (Beef)',
     price: 3600,
-    image: '🌭',
+    image: 'https://loremflickr.com/640/480/beef-sausage',
     description: 'Frozen beef sausage for cold room inventory and convenient order fulfillment.'
   },
   {
@@ -248,7 +248,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Crayfish',
     price: 5100,
-    image: '🦞',
+    image: 'https://loremflickr.com/640/480/crayfish',
     description: 'Frozen crayfish supplied for seafood cold room handling and preservation.'
   },
   {
@@ -256,7 +256,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Catfish',
     price: 5100,
-    image: '🐟',
+    image: 'https://loremflickr.com/640/480/catfish',
     description: 'Frozen catfish for reliable cold room storage and seafood wholesale.'
   },
   {
@@ -264,7 +264,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Prawns 24,100/kg',
     price: 24100,
-    image: '🦐',
+    image: 'https://loremflickr.com/640/480/prawns',
     description: 'Premium prawns sold by kilogram for high-end frozen seafood inventory.'
   },
   {
@@ -272,7 +272,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Prawns 13,100 / 500g',
     price: 13100,
-    image: '🦐',
+    image: 'https://loremflickr.com/640/480/prawns-500g',
     description: 'Frozen prawns portioned into 500g packs for cold room stocking.'
   },
   {
@@ -280,7 +280,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Mini Sausage',
     price: 2600,
-    image: '🌭',
+    image: 'https://loremflickr.com/640/480/mini-sausage',
     description: 'Frozen mini sausages ideal for small batch cold storage and quick service.'
   },
   {
@@ -288,7 +288,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Crabs 9,000/kg',
     price: 9000,
-    image: '🦀',
+    image: 'https://loremflickr.com/640/480/crabs',
     description: 'Premium frozen crabs sold by kilogram for seafood cold room supply.'
   },
   {
@@ -296,7 +296,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Crabs 5,000 / 500g',
     price: 5000,
-    image: '🦀',
+    image: 'https://loremflickr.com/640/480/crabs-500g',
     description: 'Frozen crab portions in 500g packs for retail cold storage.'
   },
   {
@@ -304,7 +304,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Calamari 27,000/kg',
     price: 27000,
-    image: '🦑',
+    image: 'https://loremflickr.com/640/480/calamari',
     description: 'High-grade frozen calamari sold by kilogram for premium storage.'
   },
   {
@@ -312,7 +312,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Calamari 12,000 / 500g',
     price: 12000,
-    image: '🦑',
+    image: 'https://loremflickr.com/640/480/calamari-500g',
     description: 'Frozen calamari in 500g packs for seafood retail cold rooms.'
   },
 ]
