@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useCatalog } from '../CatalogContext'
+import { formatNaira } from '../utils/formatNaira'
 
 const initialForm = {
   name: '',
