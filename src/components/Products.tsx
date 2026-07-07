@@ -3,6 +3,14 @@ import { Link, useParams } from 'react-router-dom'
 import { useCatalog } from '../CatalogContext'
 import { Product as CartProduct, useCart } from '../CartContext'
 import { formatNaira } from '../utils/formatCurrency'
+import horseMackerelImage from '../assets/images/fish/horse-mackerel.jpg'
+import herringShawaImage from '../assets/images/fish/herring-shawa.jpg'
+import titusImage from '../assets/images/fish/titus.jpg'
+import tilapiaImage from '../assets/images/fish/tilapia.jpg'
+import breamImage from '../assets/images/fish/bream.jpg'
+import croakerImage from '../assets/images/fish/croaker.jpg'
+import hakeImage from '../assets/images/fish/hake.jpg'
+import beefImage from '../assets/images/fish/beef.jpg'
 
 const fallbackImagesByPage: Record<number, string> = {
   1: new URL('../assets/images/fish-fallback.svg', import.meta.url).href,
@@ -26,14 +34,28 @@ const localImages: Record<string, string> = Object.fromEntries(
   })
 )
 
+const explicitLocalImageMap: Record<string, string> = {
+  'horse-mackerel': horseMackerelImage,
+  'herring-shawa': herringShawaImage,
+  'titus': titusImage,
+  'tilapia': tilapiaImage,
+  'bream': breamImage,
+  'croaker': croakerImage,
+  'hake': hakeImage,
+  'beef': beefImage,
+  'beef-entrecote': beefImage,
+  'minced-beef': beefImage,
+  'beef-sausage': beefImage,
+}
+
 function resolveProductImage(product: Product, pageFallback: string) {
   if (typeof product.image === 'string' && product.image.startsWith('http')) {
     return product.image
   }
 
   const slug = String(product.image).trim().toLowerCase()
-  const directMatch = localImages[slug]
-  const nameBasedMatch = localImages[slugify(product.name)]
+  const directMatch = explicitLocalImageMap[slug] ?? localImages[slug]
+  const nameBasedMatch = explicitLocalImageMap[slugify(product.name)] ?? localImages[slugify(product.name)]
 
   if (directMatch) return directMatch
   if (nameBasedMatch) return nameBasedMatch
