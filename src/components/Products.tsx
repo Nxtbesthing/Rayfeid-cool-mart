@@ -97,7 +97,7 @@ export default function Products() {
 
             const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0
             const pageFallback = fallbackImagesByPage[product.page ?? 1] ?? genericFallbackImage
-            const imageSrc = typeof product.image === 'string' && product.image.startsWith('http') ? product.image : pageFallback
+            const imageSrc = resolveProductImage(product, pageFallback)
 
             return (
               <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
