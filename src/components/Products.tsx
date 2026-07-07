@@ -19,22 +19,18 @@ const directImageFallbacks: Record<string, string> = {
 }
 
 const localImages: Record<string, string> = {
-  'horse-mackerel': 'https://source.unsplash.com/640x480/?horse-mackerel,fish',
-  'herring-shawa': 'https://source.unsplash.com/640x480/?herring,fish',
-  'titus': 'https://source.unsplash.com/640x480/?titus,fish',
-  'kanfale': 'https://source.unsplash.com/640x480/?kanfale,fish',
-  'dentex': 'https://source.unsplash.com/640x480/?dentex,fish',
-  'tilapia': 'https://source.unsplash.com/640x480/?tilapia,fish',
-  'rock-fish': 'https://source.unsplash.com/640x480/?rock-fish,fish',
-  'bonito': 'https://source.unsplash.com/640x480/?bonito,fish',
-  'mullet': 'https://source.unsplash.com/640x480/?mullet,fish',
-  'croaker': 'https://source.unsplash.com/640x480/?croaker,fish',
-  'bream': 'https://source.unsplash.com/640x480/?bream,fish',
-  'hake': 'https://source.unsplash.com/640x480/?hake,fish',
-  'beef': 'https://source.unsplash.com/640x480/?beef,meat',
-  'beef-entrecote': 'https://source.unsplash.com/640x480/?beef-entrecote,meat',
-  'minced-beef': 'https://source.unsplash.com/640x480/?minced-beef,meat',
-  'beef-sausage': 'https://source.unsplash.com/640x480/?beef-sausage,meat',
+  'horse-mackerel': new URL('../assets/images/fish/horse-mackerel.svg', import.meta.url).href,
+  'herring-shawa': new URL('../assets/images/fish/herring-shawa.svg', import.meta.url).href,
+  'titus': new URL('../assets/images/fish/titus.svg', import.meta.url).href,
+  'kanfale': new URL('../assets/images/fish/kanfale.svg', import.meta.url).href,
+  'dentex': new URL('../assets/images/fish/dentex.svg', import.meta.url).href,
+  'tilapia': new URL('../assets/images/fish/tilapia.svg', import.meta.url).href,
+  'rock-fish': new URL('../assets/images/fish/rock-fish.svg', import.meta.url).href,
+  'bonito': new URL('../assets/images/fish/bonito.svg', import.meta.url).href,
+  'mullet': new URL('../assets/images/fish/mullet.svg', import.meta.url).href,
+  'croaker': new URL('../assets/images/fish/croaker.svg', import.meta.url).href,
+  'bream': new URL('../assets/images/fish/bream.svg', import.meta.url).href,
+  'hake': new URL('../assets/images/fish/hake.svg', import.meta.url).href,
 }
 
 function resolveProductImage(product: Product, pageFallback: string) {
