@@ -320,9 +320,20 @@ const defaultProducts: Product[] = [
 const imageUrlPattern = /^(https?:\/\/|data:image\/)/
 const isValidImageUrl = (image: unknown): image is string => typeof image === 'string' && imageUrlPattern.test(image)
 
+// Resolve local image files to their built URLs so products use actual assets when available
+const localImageModules = import.meta.glob('./assets/images/fish/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>
+const localImages: Record<string, string> = Object.fromEntries(
+  Object.entries(localImageModules).map(([path, module]) => {
+    const name = path.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase() ?? path
+    return [name, (module as any).default]
+  })
+)
+
 const defaultImageMap: Record<string, string> = {}
 defaultProducts.forEach(product => {
-  defaultImageMap[product.name] = product.image
+  const imgField = product.image
+  const resolved = typeof imgField === 'string' && !imageUrlPattern.test(imgField) ? (localImages[String(imgField).toLowerCase()] ?? imgField) : imgField
+  defaultImageMap[product.name] = resolved
 })
 
 function migrateStoredProducts(stored: unknown): Product[] | null {
@@ -350,7 +361,9 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<Product[]>(() => {
     if (typeof window === 'undefined') return defaultProducts
     const stored = window.localStorage.getItem(CATALOG_STORAGE_KEY)
-    if (!stored) return defaultProducts
+    if (!stored) {
+      return defaultProducts.map(p => ({ ...p, image: defaultImageMap[p.name] ?? p.image }))
+    }
 
     try {
       const parsed = JSON.parse(stored)
