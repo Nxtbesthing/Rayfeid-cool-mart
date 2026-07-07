@@ -18,20 +18,13 @@ const directImageFallbacks: Record<string, string> = {
   'beef-sausage': genericFallbackImage,
 }
 
-const localImages: Record<string, string> = {
-  'horse-mackerel': new URL('../assets/images/fish/horse-mackerel.svg', import.meta.url).href,
-  'herring-shawa': new URL('../assets/images/fish/herring-shawa.svg', import.meta.url).href,
-  'titus': new URL('../assets/images/fish/titus.svg', import.meta.url).href,
-  'kanfale': new URL('../assets/images/fish/kanfale.svg', import.meta.url).href,
-  'dentex': new URL('../assets/images/fish/dentex.svg', import.meta.url).href,
-  'tilapia': new URL('../assets/images/fish/tilapia.svg', import.meta.url).href,
-  'rock-fish': new URL('../assets/images/fish/rock-fish.svg', import.meta.url).href,
-  'bonito': new URL('../assets/images/fish/bonito.svg', import.meta.url).href,
-  'mullet': new URL('../assets/images/fish/mullet.svg', import.meta.url).href,
-  'croaker': new URL('../assets/images/fish/croaker.svg', import.meta.url).href,
-  'bream': new URL('../assets/images/fish/bream.svg', import.meta.url).href,
-  'hake': new URL('../assets/images/fish/hake.svg', import.meta.url).href,
-}
+const localImageModules = import.meta.glob('../assets/images/fish/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>
+const localImages: Record<string, string> = Object.fromEntries(
+  Object.entries(localImageModules).map(([path, module]) => {
+    const name = path.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase() ?? path
+    return [name, module.default]
+  })
+)
 
 function resolveProductImage(product: Product, pageFallback: string) {
   if (typeof product.image === 'string' && product.image.startsWith('http')) {
