@@ -24,6 +24,13 @@ const fallbackImagesByPage: Record<number, string> = {
 }
 const genericFallbackImage = new URL('../assets/images/image-fallback.svg', import.meta.url).href
 
+const directImageFallbacks: Record<string, string> = {
+  'beef': genericFallbackImage,
+  'beef-entrecote': genericFallbackImage,
+  'minced-beef': genericFallbackImage,
+  'beef-sausage': genericFallbackImage,
+}
+
 const localImages: Record<string, string> = {
   'horse-mackerel': horseMackerelImage,
   'herring-shawa': herringShawaImage,
@@ -52,7 +59,11 @@ function resolveProductImage(product: Product, pageFallback: string) {
   const directMatch = localImages[slug]
   const nameBasedMatch = localImages[slugify(product.name)]
 
-  return directMatch ?? nameBasedMatch ?? pageFallback
+  if (directMatch) return directMatch
+  if (nameBasedMatch) return nameBasedMatch
+  if (slug in directImageFallbacks) return directImageFallbacks[slug]
+
+  return pageFallback
 }
 
 function slugify(text: string) {
