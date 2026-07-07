@@ -339,13 +339,18 @@ defaultProducts.forEach(product => {
 function migrateStoredProducts(stored: unknown): Product[] | null {
   if (!Array.isArray(stored)) return null
 
+  const defaultProductIds = new Set(defaultProducts.map(product => product.id))
+
   return stored.map(item => {
     if (!item || typeof item !== 'object') return item as Product
 
     const product = item as Product
-    const image = isValidImageUrl(product.image)
-      ? product.image
-      : defaultImageMap[product.name] ?? product.image
+    const isDefaultProduct = defaultProductIds.has(product.id)
+    const image = isDefaultProduct
+      ? defaultImageMap[product.name] ?? product.image
+      : isValidImageUrl(product.image)
+        ? product.image
+        : defaultImageMap[product.name] ?? product.image
 
     return {
       ...product,
