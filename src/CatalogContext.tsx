@@ -16,7 +16,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Horse Mackerel',
     price: 4800,
-    image: 'https://source.unsplash.com/640x480/?horse-mackerel',
+    image: 'horse-mackerel',
     description: 'Fresh frozen horse mackerel, ideal for cold room storage and seafood menus.'
   },
   {
@@ -24,7 +24,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Herring (Shawa)',
     price: 3500,
-    image: 'https://source.unsplash.com/640x480/?herring',
+    image: 'herring-shawa',
     description: 'Premium frozen herring ready for preservation in your cold room.'
   },
   {
@@ -32,7 +32,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Titus',
     price: 7500,
-    image: 'https://source.unsplash.com/640x480/?titus-fish',
+    image: 'titus',
     description: 'High-quality frozen titus for dependable shelf life and flavor retention.'
   },
   {
@@ -40,7 +40,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Kanfale',
     price: 3700,
-    image: 'https://source.unsplash.com/640x480/?kanfale',
+    image: 'kanfale',
     description: 'Tender frozen kanfale, prepared for safe cold storage.'
   },
   {
@@ -48,7 +48,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Dentex',
     price: 4600,
-    image: 'https://source.unsplash.com/640x480/?dentex-fish',
+    image: 'dentex',
     description: 'Frozen dentex packaged for ideal frozen fish inventory management.'
   },
   {
@@ -56,7 +56,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Tilapia',
     price: 4600,
-    image: 'https://source.unsplash.com/640x480/?tilapia',
+    image: 'tilapia',
     description: 'Frozen tilapia fillets, ready for your refrigerated cold room system.'
   },
   {
@@ -64,7 +64,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Rock Fish',
     price: 3600,
-    image: 'https://source.unsplash.com/640x480/?rock-fish',
+    image: 'rock-fish',
     description: 'Frozen rock fish with stable quality for long-term cold storage.'
   },
   {
@@ -72,7 +72,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Bonito',
     price: 4100,
-    image: 'https://source.unsplash.com/640x480/?bonito',
+    image: 'bonito',
     description: 'Frozen bonito, suitable for seafood supply and cold room inventory.'
   },
   {
@@ -80,7 +80,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Mullet',
     price: 3500,
-    image: 'https://source.unsplash.com/640x480/?mullet',
+    image: 'mullet',
     description: 'Classic frozen mullet for efficient cold storage and shipping.'
   },
   {
@@ -88,7 +88,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Croaker',
     price: 5500,
-    image: 'https://source.unsplash.com/640x480/?croaker',
+    image: 'croaker',
     description: 'Fresh frozen croaker, perfect for your seafood cold room needs.'
   },
   {
@@ -96,7 +96,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Bream',
     price: 5200,
-    image: 'https://source.unsplash.com/640x480/?bream',
+    image: 'bream',
     description: 'Frozen bream with excellent frozen storage compatibility.'
   },
   {
@@ -104,7 +104,7 @@ const defaultProducts: Product[] = [
     page: 1,
     name: 'Hake',
     price: 5200,
-    image: 'https://source.unsplash.com/640x480/?hake',
+    image: 'hake',
     description: 'Premium frozen hake ready for controlled cold room preservation.'
   },
   {
@@ -128,7 +128,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Beef',
     price: 4600,
-    image: 'https://source.unsplash.com/640x480/?beef-cut',
+    image: 'beef',
     description: 'Premium frozen beef for optimized cold room inventory management.'
   },
   {
@@ -136,7 +136,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Beef Entrecôte',
     price: 4600,
-    image: 'https://source.unsplash.com/640x480/?beef-entrecote',
+    image: 'beef-entrecote',
     description: 'Frozen beef entrecôte with excellent quality for cold storage and retail.'
   },
   {
@@ -144,7 +144,7 @@ const defaultProducts: Product[] = [
     page: 2,
     name: 'Minced Beef',
     price: 550,
-    image: 'https://source.unsplash.com/640x480/?minced-beef',
+    image: 'minced-beef',
     description: 'Frozen minced beef for flexible meal preparation and cold room preservation.'
   },
   {
@@ -240,7 +240,7 @@ const defaultProducts: Product[] = [
     page: 3,
     name: 'Sausage (Beef)',
     price: 3600,
-    image: 'https://source.unsplash.com/640x480/?beef-sausage',
+    image: 'beef-sausage',
     description: 'Frozen beef sausage for cold room inventory and convenient order fulfillment.'
   },
   {

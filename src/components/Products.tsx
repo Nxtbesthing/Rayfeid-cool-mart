@@ -11,6 +11,33 @@ const fallbackImagesByPage: Record<number, string> = {
 }
 const genericFallbackImage = new URL('../assets/images/image-fallback.svg', import.meta.url).href
 
+const localImageModules = import.meta.globEager('../assets/images/**/*.{png,jpg,jpeg,svg}') as Record<string, { default: string }>
+const localImages = Object.fromEntries(
+  Object.entries(localImageModules).map(([path, module]) => {
+    const name = path.split('/').pop()?.replace(/\.(png|jpe?g|svg)$/i, '') ?? path
+    return [name.toLowerCase(), module.default]
+  })
+)
+
+function resolveProductImage(product: Product, pageFallback: string) {
+  if (typeof product.image === 'string' && product.image.startsWith('http')) {
+    return product.image
+  }
+
+  const slug = String(product.image).trim().toLowerCase()
+  const directMatch = localImages[slug]
+  const nameBasedMatch = localImages[slugify(product.name)]
+
+  return directMatch ?? nameBasedMatch ?? pageFallback
+}
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+}
+
 interface Product extends CartProduct {}
 
 export default function Products() {
