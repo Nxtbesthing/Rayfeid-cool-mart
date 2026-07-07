@@ -36,6 +36,67 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = (newUser: User) => setUser(newUser)
   const logout = () => setUser(null)
 
+  // Auto-logout after inactivity (5 minutes)
+  useEffect(() => {
+    const INACTIVITY_MS = 5 * 60 * 1000 // 5 minutes
+    let timeoutId: number | undefined
+
+    function clearExisting() {
+      if (typeof timeoutId !== 'undefined') {
+        window.clearTimeout(timeoutId)
+        timeoutId = undefined
+      }
+    }
+
+    function scheduleLogout() {
+      clearExisting()
+      if (!user) return
+      timeoutId = window.setTimeout(() => {
+        setUser(null)
+      }, INACTIVITY_MS)
+    }
+
+    function resetTimer() {
+      scheduleLogout()
+      try {
+        // update a shared timestamp so other tabs can sync activity
+        window.localStorage.setItem(AUTH_STORAGE_KEY + ':lastActivity', Date.now().toString())
+      } catch (e) {}
+    }
+
+    const events = ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'] as const
+    events.forEach(evt => window.addEventListener(evt, resetTimer, { passive: true }))
+
+    // listen for storage events to sync logout/login across tabs
+    function onStorage(e: StorageEvent) {
+      if (e.key === AUTH_STORAGE_KEY && e.newValue === null) {
+        // logged out in another tab
+        setUser(null)
+      }
+      if (e.key === AUTH_STORAGE_KEY && e.newValue) {
+        try {
+          const other = JSON.parse(e.newValue) as User
+          setUser(other)
+        } catch (err) {}
+      }
+      if (e.key === AUTH_STORAGE_KEY + ':lastActivity') {
+        // another tab had activity — reset our timer
+        scheduleLogout()
+      }
+    }
+
+    window.addEventListener('storage', onStorage)
+
+    // start/stop timer based on `user`
+    scheduleLogout()
+
+    return () => {
+      clearExisting()
+      events.forEach(evt => window.removeEventListener(evt, resetTimer))
+      window.removeEventListener('storage', onStorage)
+    }
+  }, [user])
+
   const isAdmin = Boolean(user?.email.toLowerCase().includes('admin'))
 
   return (
