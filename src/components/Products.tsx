@@ -34,6 +34,14 @@ const localImages: Record<string, string> = Object.fromEntries(
   })
 )
 
+const devCacheBuster = import.meta.env.DEV ? `?t=${Date.now()}` : ''
+
+function withDevCacheBuster(url: string) {
+  if (!import.meta.env.DEV || !url) return url
+  // don't append twice
+  return url.includes('?') ? `${url}&t=${Date.now()}` : `${url}${devCacheBuster}`
+}
+
 const explicitLocalImageMap: Record<string, string> = {
   'horse-mackerel': horseMackerelImage,
   'herring-shawa': herringShawaImage,
@@ -130,7 +138,7 @@ export default function Products() {
 
             const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0
             const pageFallback = fallbackImagesByPage[product.page ?? 1] ?? genericFallbackImage
-            const imageSrc = resolveProductImage(product, pageFallback)
+            const imageSrc = withDevCacheBuster(resolveProductImage(product, pageFallback))
 
             return (
               <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
@@ -141,7 +149,7 @@ export default function Products() {
                     className="h-full w-full object-cover"
                     onError={event => {
                       const img = event.currentTarget
-                      if (img.src !== pageFallback) img.src = pageFallback
+                      if (img.src !== pageFallback) img.src = withDevCacheBuster(pageFallback)
                     }}
                   />
                 </div>
