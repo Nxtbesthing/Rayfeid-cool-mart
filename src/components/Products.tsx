@@ -4,6 +4,19 @@ import { useCatalog } from '../CatalogContext'
 import { Product as CartProduct, useCart } from '../CartContext'
 import { formatNaira } from '../utils/formatCurrency'
 
+import horseMackerelImage from '../assets/images/fish/horse-mackerel.svg'
+import herringShawaImage from '../assets/images/fish/herring-shawa.svg'
+import titusImage from '../assets/images/fish/titus.svg'
+import kanfaleImage from '../assets/images/fish/kanfale.svg'
+import dentexImage from '../assets/images/fish/dentex.svg'
+import tilapiaImage from '../assets/images/fish/tilapia.svg'
+import rockFishImage from '../assets/images/fish/rock-fish.svg'
+import bonitoImage from '../assets/images/fish/bonito.svg'
+import mulletImage from '../assets/images/fish/mullet.svg'
+import croakerImage from '../assets/images/fish/croaker.svg'
+import breamImage from '../assets/images/fish/bream.svg'
+import hakeImage from '../assets/images/fish/hake.svg'
+
 const fallbackImagesByPage: Record<number, string> = {
   1: new URL('../assets/images/fish-fallback.svg', import.meta.url).href,
   2: new URL('../assets/images/meat-fallback.svg', import.meta.url).href,
@@ -11,13 +24,24 @@ const fallbackImagesByPage: Record<number, string> = {
 }
 const genericFallbackImage = new URL('../assets/images/image-fallback.svg', import.meta.url).href
 
-const localImageModules = import.meta.globEager('../assets/images/**/*.{png,jpg,jpeg,svg}') as Record<string, { default: string }>
-const localImages = Object.fromEntries(
-  Object.entries(localImageModules).map(([path, module]) => {
-    const name = path.split('/').pop()?.replace(/\.(png|jpe?g|svg)$/i, '') ?? path
-    return [name.toLowerCase(), module.default]
-  })
-)
+const localImages: Record<string, string> = {
+  'horse-mackerel': horseMackerelImage,
+  'herring-shawa': herringShawaImage,
+  'titus': titusImage,
+  'kanfale': kanfaleImage,
+  'dentex': dentexImage,
+  'tilapia': tilapiaImage,
+  'rock-fish': rockFishImage,
+  'bonito': bonitoImage,
+  'mullet': mulletImage,
+  'croaker': croakerImage,
+  'bream': breamImage,
+  'hake': hakeImage,
+  'beef': '',
+  'beef-entrecote': '',
+  'minced-beef': '',
+  'beef-sausage': '',
+}
 
 function resolveProductImage(product: Product, pageFallback: string) {
   if (typeof product.image === 'string' && product.image.startsWith('http')) {
