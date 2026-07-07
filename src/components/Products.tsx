@@ -65,6 +65,11 @@ function resolveProductImage(product: Product, pageFallback: string) {
   const directMatch = explicitLocalImageMap[slug] ?? localImages[slug]
   const nameBasedMatch = explicitLocalImageMap[slugify(product.name)] ?? localImages[slugify(product.name)]
 
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.debug('resolveProductImage:', { id: product.id, name: product.name, imageField: product.image, slug, directMatch, nameBasedMatch })
+  }
+
   if (directMatch) return directMatch
   if (nameBasedMatch) return nameBasedMatch
   if (slug in directImageFallbacks) return directImageFallbacks[slug]
