@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -20,12 +21,23 @@ import Profile from './pages/Profile'
 import CatalogManagement from './pages/CatalogManagement'
 import './App.css'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [pathname])
+
+  return null
+}
+
 function App() {
   return (
     <AuthProvider>
       <CatalogProvider>
         <CartProvider>
           <BrowserRouter>
+            <ScrollToTop />
             <Navbar />
             <FloatingCart />
             <Routes>
